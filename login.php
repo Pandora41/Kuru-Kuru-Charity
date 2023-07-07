@@ -17,7 +17,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
         $privilege = $row['privilege'];
 
         if ($privilege == 'admin') {
-            echo "Selamat datang, Admin!";
+            echo "Selamat datang, Akhtar!";
             $_SESSION['privilege'] = 'admin';
 
             header("Location: index.php");
