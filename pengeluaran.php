@@ -1,3 +1,45 @@
+<?php
+include "connect.php";
+session_start();
+
+if ($_SESSION['privilege'] == "user") {
+    header("location:index.php");
+}
+
+elseif ($_SESSION['privilege'] != 'admin') {
+    header("location:login.php");
+}
+
+$kelas = "";
+$tahun = "";
+$alert = "";
+$nis = "";
+$pencarian = "";
+
+if (isset($_GET['pencarian']) && $_GET['pencarian'] != '') {
+    $pencarian = $_GET['pencarian'];
+    $query = mysqli_query($connect, "SELECT * FROM `pengeluaran` WHERE `no` LIKE '%$pencarian%' OR `tanggal_pengeluaran` LIKE '%$pencarian%' OR `keterangan` LIKE '%$pencarian%' OR `jumlah` LIKE '%$pencarian%'");
+    $results = mysqli_fetch_all($query, MYSQLI_ASSOC);
+
+}
+
+$total = "SELECT SUM(total) as total_sum FROM pemasukan";
+$hasiltotal = $connect->query($total);
+$rowa = $hasiltotal->fetch_assoc();
+$totalSum = $rowa['total_sum'];
+
+$totalPengeluaran = "SELECT SUM(jumlah) as total_sum_keluar FROM pengeluaran";
+$hasiltotal1 = $connect->query($totalPengeluaran);
+$rowa1 = $hasiltotal1->fetch_assoc();
+$totalPengeluaran = $rowa1['total_sum_keluar'];
+
+$saldo = $totalSum - $totalPengeluaran;
+
+$query = mysqli_query($connect, "SELECT * FROM `pengeluaran` ORDER BY `no`");
+$results = mysqli_fetch_all($query, MYSQLI_ASSOC);
+
+?>
+
 <!DOCTYPE html>
 <html lang="en">
 
@@ -29,24 +71,24 @@
 
         <div class="menu-items">
             <ul class="nav-links">
-                <li><a class="list-link" href="index.html">
+                <li><a class="list-link" href="index.php">
                         <i class='bx bx-home-alt'></i>
                         <span class="link-name">Dahsboard</span>
                     </a></li>
-                <li><a class="list-link" href="pendapatan.html">
+                <li><a class="list-link" href="pendapatan.php">
                         <i class='bx bxs-archive-in'></i>
                         <span class="link-name">Pendapatan</span>
                     </a></li>
-                <li><a class="list-link" href="pengeluaran.html">
+                <li><a class="list-link" href="pengeluaran.php">
                         <i class='bx bx-archive-out'></i>
                         <span class="link-name">Pengeluaran</span>
                     </a></li>
-                <li><a href="kuitansi.html">
+                <li><a href="kuitansi.php">
                         <i class='bx bx-receipt'></i>
                         <span class="link-name">Kuitansi</span>
                     </a></li>
             </ul>
-
+    
             <ul class="logout-mode">
                 <li><a href="#">
                         <i class="uil uil-signout"></i>
@@ -72,8 +114,10 @@
 
             <div class="search-box">
                 <i class="uil uil-search"></i>
+                <form action="#" METHOD="GET">
                 <input class="submit" type="submit" value="">
-                <input class="search" type="text" placeholder="Search here...">
+                <input class="search" type="text" placeholder="Cari Disini . . ." name="pencarian">
+                </form>
             </div>
         </div>
         <div class="dash-content">
@@ -89,21 +133,23 @@
                             <i class='bx bxs-graduation'></i>
                             <span class="text">Saldo</span>
                         </div>
-                        <span class="number">Rp. 200,000,000</span>
+                        <?php $formattedValue = number_format($saldo, 0, ',', '.'); ?>
+                        <span class="number">Rp. <?= $formattedValue ?></span>
                     </div>
                     <div class="box box1">
                         <div class="header-box">
                             <i class='bx bx-money'></i>
-                            <span class="text">Total</span>
+                            <span class="text">Total Pengeluaran</span>
                         </div>
-                        <span class="number">Rp. 5,000,000</span>
+                        <?php $formattedValue = number_format($totalPengeluaran, 0, ',', '.'); ?>
+                        <span class="number">Rp. <?= $formattedValue ?></span>
                     </div>
                 </div>
             </div>
 
             <div class="activity">
                 <div class="header-activity">
-                    <a class="links add-link" href="dist/add-pengeluaran.html"><i class='bx bx-plus-circle'></i>Tambah</a>
+                    <a class="links add-link" href="dist/add-pengeluaran.php"><i class='bx bx-plus-circle'></i>Tambah</a>
                 </div>
                 <div class="activity-data">
                     <div class="table-container">
@@ -117,19 +163,32 @@
                             <th>Opsi</th>
                             <!-- fitur admin -->
                           </tr>
+                          <?php 
+                        foreach ($results as $result) :?>
+                         <form action="dist/edit-pengeluaran.php" method="POST">
                           <tr>
-                            <td></td>
-                            <td></td>
-                            <td></td>
-                            <td></td>
+                            <td><?=$result['no']?></td>
+                            <td><?=$result['tanggal_pengeluaran']?></td>
+                            <td><?=$result['keterangan']?></td>
+                            <?php $formattedValue = number_format($result['jumlah'], 0, ',', '.'); ?>
+                            <td><?=$formattedValue?></td>
+
                             <!-- fitur admin -->
                             <td class="option">
-                                <a class="links edit-link" href="dist/edit-pengeluaran.html"><i class='bx bx-edit-alt' ></i></a>
-                                <a class="links delete-link" href="Hapus.html"><i class='bx bx-trash' ></i></a>
-                                <a class="links print-link" href="Hapus.html"><i class='bx bx-printer'></i></a>
+                                <input type="hidden" name="no" value="<?=$result['no']?>">
+                                <input type="hidden" name="tanggal_pengeluaran" value="<?=$result['tanggal_pengeluaran']?>">
+                                <input type="hidden" name="keterangan" value="<?=$result['keterangan']?>">
+                                <input type="hidden" name="jumlah" value="<?=$result['jumlah']?>">
+                                <button type="submit" class="links edit-link" name="edit" value="edit"><i class='bx bx-edit-alt' ></i></button>
+                                <button type="submit" class="links delete-link" name="hapus" value="hapus"><i class='bx bx-trash' ></i></button>
+                                
+                                
+                                <a class="links print-link" href="print.php"><i class='bx bx-printer'></i></a>
                             </td>
                             <!-- fitur admin -->
                           </tr>
+                        </form>
+                          <?php endforeach?>
                         </table>
                       </div>
                       

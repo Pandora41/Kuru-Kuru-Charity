@@ -1,4 +1,9 @@
 <?php
+session_start();
+
+if(isset($_SESSION['privilege'])) {
+    echo $_SESSION['privilege'];
+}
 
 $conn = mysqli_connect('localhost','root','','SPMP');
 if ($conn->connect_error) {
@@ -19,9 +24,9 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
 
         if ($privilege == 'admin') {
             echo "Selamat datang, Admin!";
-            $_SESSION['privilege'] = 'admin';
+            $_SESSION['privilege'] = "admin";
 
-            header("Location: index.html");
+            header("Location: index.php");
             exit();
 
         } elseif ($privilege == 'user') {

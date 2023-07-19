@@ -11,28 +11,28 @@
     <title>SPMP</title>
 </head>
 <body> 
-    <form action="">
+    <form action="../process-tambah-pengeluaran.php" METHOD="POST">
     <div class="container">
         <div class="header-form">
-            <a class="undo" href="../pengeluaran.html"><i class='bx bx-chevron-left-circle' ></i></a>
-            <span class="title-form">Edit Pengeluaran</span>
+            <a class="undo" href="../pengeluaran.php"><i class='bx bx-chevron-left-circle' ></i></a>
+            <span class="title-form">Tambah Pengeluaran</span>
         </div>
        
             <div class="main-form">
                 <div class="input-data">
                     <div class="data input-text">
                         <span class="text">Keterangan</span>
-                        <textarea name="" id="" cols="30" rows="5"></textarea>
+                        <textarea name="keterangan" id="" cols="30" rows="5" placeholder="ketik disini"></textarea>
                     </div>
                     <div class="data input-number">
                         <span class="text">Nominal</span>
-                        <input type="text" name="" id="">
+                        <input type="text" name="nominal" id="" placeholder="Rp. -">
                     </div>
                 </div>
             </div>
         <div class="btn-form">
-            <input class="btn-form" type="submit" value="Edit">
-            <a href="../pengeluaran.html">Cancel</a>
+            <input class="btn-form" type="submit" value="Tambah">
+            <a href="../pengeluaran.php">Cancel</a>
         </div>
     
     </div>
