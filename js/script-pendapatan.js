@@ -61,6 +61,8 @@ const closeForm = () => {
 
 closeBtn1.addEventListener("click", closeForm);
 
+document.getElementById("link").setAttribute("href", "print.php?nis=" + nis);
+
 // hireBtn.forEach((popbtn) => {
 //   popbtn.addEventListener("click", () => {
 //     popOuter.classList.add("active");
