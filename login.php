@@ -1,15 +1,16 @@
 <?php
-session_start();
-$_SESSION['privilege'] = '';
 
-include "connect.php";
+$conn = mysqli_connect('localhost','root','','SPMP');
+if ($conn->connect_error) {
+    die("Koneksi ke database gagal: " . $conn->connect_error);
+}
 
 if ($_SERVER["REQUEST_METHOD"] == "POST") {
     $nip = $_POST['nip'];
     $password = $_POST['password'];
 
     $sql = "SELECT * FROM akun_tb WHERE nip = '$nip' AND password = '$password'";
-    $result = $connect->query($sql);
+    $result = $conn->query($sql);
 
     if ($result->num_rows > 0) {
 
@@ -17,17 +18,24 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
         $privilege = $row['privilege'];
 
         if ($privilege == 'admin') {
-            echo "Selamat datang, Akhtar!";
+            echo "Selamat datang, Admin!";
             $_SESSION['privilege'] = 'admin';
 
-            header("Location: index.php");
+            header("Location: index.html");
             exit();
 
         } elseif ($privilege == 'user') {
             echo "Selamat datang, User!";
             $_SESSION['privilege'] = 'user'; 
 
-            header("Location: index.php");
+            header("Location: user.php");
+            exit();
+
+        } elseif ($privilege == 'user') {
+            echo "Selamat datang, user!";
+            $_SESSION['privilege'] = 'user'; 
+
+            header("Location: user.php");
             exit();
 
         } else {
