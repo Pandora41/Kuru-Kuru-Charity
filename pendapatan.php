@@ -573,12 +573,13 @@ $totalSumKelas = $rowKelas['total_sum'];
                     <input type="text" name="bulan" id="bulanInput" readonly>
                     <input type="text" name="kelas" id="kelasInput" readonly>
                     <input type="hidden" name="nominalAwal" id="nominalAwalInput">
+                    
                 </div>
             </div>
             <div class="btn-action">
                 <input type="submit" class="btn btn1" name="edit" value="Edit">
                 <input type="submit" class="btn btn2" name="hapus" value="Hapus">
-                <a id="print" class="btn btn3" href="print.php?nis=122041421">Print</a>
+                <input type="submit" class="btn btn3" name="print" value="Print">
             </div>
                 </form>
         </div>

@@ -62,4 +62,9 @@ else
 echo "Input Gagal";
 
 }
+
+if (isset($_POST['print'])) {
+    header("location:print.php?nis=$nis&bulan=$bulan");
+}
+
 ?>

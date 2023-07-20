@@ -1,6 +1,6 @@
 <?php
 $nis = $_GET['nis'];
-$bulan = 'juli';
+$bulan = strtolower($_GET['bulan']);
 include('connect.php');
 $query = mysqli_query($connect, "SELECT * FROM pemasukan WHERE nis='$nis' LIMIT 1");
 $results = mysqli_fetch_all ($query, MYSQLI_ASSOC);
@@ -8,7 +8,7 @@ $results = mysqli_fetch_all ($query, MYSQLI_ASSOC);
 $nama = $results[0]['nama'];
 $kelas = $results[0]['kelas'];
 $nominal = $results[0][$bulan];
-// $tanggal = $results[0]['tanggal_$bulan'];
+$tanggal = $results[0]['tanggal_'. $bulan];
 
 // Memanggil library FPDF
 require('fpdf/fpdf.php');
@@ -45,7 +45,7 @@ $pdf->Cell(155,7,'Rp. '.$nominal.',-',0,1);
 $pdf->Cell(30,7,'Tanggal',0,0);
 $pdf->Cell(5,7,':',0,0);
 // Mengambil data tanggal dari form sebelumnya
-$pdf->Cell(155,7,'a',0,1);
+$pdf->Cell(155,7,$tanggal,0,1);
 // Mencetak tanda tangan
 $pdf->Ln();
 $pdf->Cell(140);

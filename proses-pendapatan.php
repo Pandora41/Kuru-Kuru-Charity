@@ -25,10 +25,15 @@ $insert = mysqli_query($connect, "INSERT INTO `kwitansi_masuk`(`tanggal_cetak`, 
 $insert = mysqli_query($connect, "INSERT INTO `log`(`keterangan`, `user`, `target`) VALUES ('Mencatat Pemasukan Dari','Admin','$nama')");
 
 
+// if($update){
+// header("location:pendapatan.php?kelas=$getKelas&tahun=$getTahun&pencarian=$getPencarian");
+// }
+// else
+// echo "Input Gagal";
+
 if($update){
-header("location:pendapatan.php?kelas=$getKelas&tahun=$getTahun&pencarian=$getPencarian");
+header("location:print.php?nis=$nis&bulan=$bulan");
 }
 else
 echo "Input Gagal";
-
 ?>
