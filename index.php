@@ -53,7 +53,7 @@ $saldo = $totalSum - $totalPengeluaran;
             <ul class="nav-links">
                 <li><a class="list-link" href="index.php">
                     <i class='bx bx-home-alt'></i>
-                    <span class="link-name">Dahsboard</span>
+                    <span class="link-name">Dashboard</span>
                 </a></li>
                 <li><a class="list-link" href="pendapatan.php">
                     <i class='bx bxs-archive-in'></i>

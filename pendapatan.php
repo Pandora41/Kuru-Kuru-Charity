@@ -121,7 +121,7 @@ $totalSumKelas = $rowKelas['total_sum'];
             <ul class="nav-links">
                 <li><a class="list-link" href="index.php">
                         <i class='bx bx-home-alt'></i>
-                        <span class="link-name">Dahsboard</span>
+                        <span class="link-name">Dashboard</span>
                     </a></li>
                 <li><a class="list-link" href="pendapatan.php">
                         <i class='bx bxs-archive-in'></i>
@@ -283,7 +283,7 @@ $totalSumKelas = $rowKelas['total_sum'];
                 <div class="activity-data">
                     <div class="table-wrapper">
                         <div class="table-fixed">
-                            <div class="overlay"></div>
+                            
                                 <!-- <tr class="data-title">
                                     <th>NIS</th>
                                     <th>Nama</th>
@@ -629,7 +629,7 @@ $totalSumKelas = $rowKelas['total_sum'];
     <div class="data input-box">
         <input type="text" name="nis" id="nisInput" readonly>
         <input type="text" name="nama" id="namaInput" readonly>
-        <input type="text" name="nominal" id="">
+        <input type="text" name="nominal" id="" value="">
         <input type="text" name="bulan" id="bulanInput" readonly>
         <input type="text" name="kelas" id="kelasInput" readonly>
     </div>

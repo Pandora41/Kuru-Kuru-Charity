@@ -50,7 +50,7 @@ $resultsa = mysqli_fetch_all($querya, MYSQLI_ASSOC);
             <ul class="nav-links">
                 <li><a class="list-link" href="index.php">
                         <i class='bx bx-home-alt'></i>
-                        <span class="link-name">Dahsboard</span>
+                        <span class="link-name">Dashboard</span>
                     </a></li>
                 <li><a class="list-link" href="pendapatan.php">
                         <i class='bx bxs-archive-in'></i>
@@ -132,8 +132,8 @@ $resultsa = mysqli_fetch_all($querya, MYSQLI_ASSOC);
                             <td>Rp. <?=$formattedValue?></td>
                             <!-- fitur admin -->
                             <td class="option">
-                                <a class="links edit-link" href="lihat.php"><ion-icon name="eye-outline"></ion-icon></a>
-                                <a class="links print-link" href="print.php?nis=<?=$result['nis']?>&bulan=<?=$result['bulan']?>"><i class='bx bx-printer'></i></a>
+                               
+                                <a class="links print-link" href="print.php?nis=<?=$result['nis']?>&bulan=<?=$result['bulan']?>&no=<?=$result['no']?>"><i class='bx bx-printer'></i></a>
                             </td>
                             <!-- fitur admin -->
                           </tr>
@@ -171,8 +171,8 @@ $resultsa = mysqli_fetch_all($querya, MYSQLI_ASSOC);
                             <td><?=$result['jumlah']?></td>
                             <!-- fitur admin -->
                             <td class="option">
-                                <a class="links edit-link" href="#"><ion-icon name="eye-outline"></ion-icon></a>
-                                <a class="links print-link" href="print.php"><i class='bx bx-printer'></i></a>
+                            
+                                <a class="links print-link" href="print.php?no=<?=$result['no']?>"><i class='bx bx-printer'></i></a>
                             </td>
                             <!-- fitur admin -->
                           </tr>

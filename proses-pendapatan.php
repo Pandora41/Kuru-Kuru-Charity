@@ -20,7 +20,7 @@ $total += $nominal;
 
 
 $update = mysqli_query($connect, "UPDATE `pemasukan` SET `$bulan` = '$nominal', `tanggal_$bulan` = CURRENT_TIMESTAMP, `total` = '$total' WHERE `nis` = '$nis'");
-$insert = mysqli_query($connect, "INSERT INTO `kwitansi_masuk`(`tanggal_cetak`, `nis`, `nama`, `kelas`, `jumlah_bayar`) VALUES (CURRENT_TIMESTAMP,'$nis','$nama','$kelas','$nominal')");
+$insert = mysqli_query($connect, "INSERT INTO `kwitansi_masuk`(`tanggal_cetak`, `nis`, `nama`, `kelas`, `jumlah_bayar`,`bulan`) VALUES (CURRENT_TIMESTAMP,'$nis','$nama','$kelas','$nominal','$bulan')");
 
 $insert = mysqli_query($connect, "INSERT INTO `log`(`keterangan`, `user`, `target`) VALUES ('Mencatat Pemasukan Dari','Admin','$nama')");
 
@@ -30,6 +30,13 @@ $insert = mysqli_query($connect, "INSERT INTO `log`(`keterangan`, `user`, `targe
 // }
 // else
 // echo "Input Gagal";
+
+$queryo = "SELECT MAX(no) AS max_number FROM `kwitansi_masuk`";
+$resulto = mysqli_query($connect, $queryo);
+
+//Fetch the result
+$rowo = mysqli_fetch_assoc($resulto);
+$no = $rowo['max_number'];
 
 if($update){
 header("location:print.php?nis=$nis&bulan=$bulan");

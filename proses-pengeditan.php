@@ -54,6 +54,15 @@ $insert = mysqli_query($connect, "INSERT INTO `kwitansi_masuk`(`tanggal_cetak`, 
 
 $insert = mysqli_query($connect, "INSERT INTO `log`(`keterangan`, `user`, `target`) VALUES ('Mengahapus Pemasukan Dari','Admin','$nama')");
 
+$queryo = "SELECT MAX(no) AS max_number FROM `kwitansi_masuk`";
+$resulto = mysqli_query($connect, $queryo);
+
+//Fetch the result  
+$rowo = mysqli_fetch_assoc($resulto);
+$no = $rowo['max_number'];
+
+
+
 
 if($update){
 header("location:pendapatan.php?kelas=$getKelas&tahun=$getTahun&pencarian=$getPencarian");
