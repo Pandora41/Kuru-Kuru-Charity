@@ -9,10 +9,10 @@ if ($_SESSION['privilege'] == "user") {
 elseif ($_SESSION['privilege'] != 'admin') {
     header("location:login.php");
 }
-$query = mysqli_query($connect, "SELECT * FROM kwitansi_masuk");
+$query = mysqli_query($connect, "SELECT * FROM kwitansi_masuk  ORDER BY `no` DESC");
 $results = mysqli_fetch_all($query, MYSQLI_ASSOC);
 
-$querya = mysqli_query($connect, "SELECT * FROM kwitansi_keluar");
+$querya = mysqli_query($connect, "SELECT * FROM kwitansi_keluar ORDER BY `no` DESC");
 $resultsa = mysqli_fetch_all($querya, MYSQLI_ASSOC);
 
 ?>
@@ -133,7 +133,7 @@ $resultsa = mysqli_fetch_all($querya, MYSQLI_ASSOC);
                             <!-- fitur admin -->
                             <td class="option">
                                 <a class="links edit-link" href="lihat.php"><ion-icon name="eye-outline"></ion-icon></a>
-                                <a class="links print-link" href="print.php"><i class='bx bx-printer'></i></a>
+                                <a class="links print-link" href="print.php?nis=<?=$result['nis']?>&bulan=<?=$result['bulan']?>"><i class='bx bx-printer'></i></a>
                             </td>
                             <!-- fitur admin -->
                           </tr>

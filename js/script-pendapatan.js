@@ -7,7 +7,7 @@ const bulanInput1 = popOuter.querySelector("#bulanInput");
 const kelasInput1 = popOuter.querySelector("#kelasInput");
 const nominalInput1 = popOuter.querySelector("#nominalInput");
 const nominalAwalInput1 = popOuter.querySelector("#nominalAwalInput");
-const nisInput11 = popOuter.querySelector("#nisInput11");
+// const nisInput11 = popOuter.querySelector("#nisInput11");
 
 hireBtn.forEach((popbtn) => {
   popbtn.addEventListener("click", () => {
@@ -23,7 +23,7 @@ hireBtn.forEach((popbtn) => {
     kelasInput1.value = kelasValue1;
     nominalInput1.value = nominalValue1;
     nominalAwalInput1.value = nominalValue1;
-    nisInput11.value = nisValue1;
+    // nisInput11.value = nisValue1;
 
     popOuter.classList.add("active");
   });
@@ -62,8 +62,6 @@ const closeForm = () => {
 };
 
 closeBtn1.addEventListener("click", closeForm);
-
-
 
 // hireBtn.forEach((popbtn) => {
 //   popbtn.addEventListener("click", () => {

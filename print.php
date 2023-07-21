@@ -1,7 +1,14 @@
 <?php
+
+if (isset($_GET['nis'])) {
 $nis = $_GET['nis'];
-$bulan = strtolower($_GET['bulan']);
+}
+if (isset($_GET['nis'])) {
+$bulan = strtolower($_GET['bulan']); }
+
 include('connect.php');
+
+
 $query = mysqli_query($connect, "SELECT * FROM pemasukan WHERE nis='$nis' LIMIT 1");
 $results = mysqli_fetch_all ($query, MYSQLI_ASSOC);
 

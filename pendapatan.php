@@ -284,21 +284,49 @@ $totalSumKelas = $rowKelas['total_sum'];
                     <div class="table-wrapper">
                         <div class="table-fixed">
                             <div class="overlay"></div>
-                            <table>
-                                <tr class="data-title">
+                                <!-- <tr class="data-title">
                                     <th>NIS</th>
                                     <th>Nama</th>
                                     <th>Kelas</th>
+                                </tr> -->
+
+                                <table>
+                                <tr class="data-title">
+                                    <th>NIS</th>
+                                </tr> <?php
+                                foreach ($results as $result) :?>
+                                <tr class="data-list ">
+                                    <td><button id="hireBtn"><?=$result['nis']?></button></td>
+                                </tr> <?php endforeach?>
+                            </table>
+                        </div>
+
+
+                        <div class="table-scrollable table-name">
+                            <table>
+                                <tr class="data-title data-name thead">
+                                    <th class="data-name">Nama</th>
                                 </tr>
                                 <?php 
             foreach ($results as $result) :?>
-                                <tr class="data-list ">
-                                    <td><button id="hireBtn"><?=$result['nis']?></button></td>
-                                    <td class="data-name"><button id="hireBtn"><?=$result['nama']?></button></td>
-                                    <td><button id="hireBtn"><?=$result['kelas']?></button></td>
-                                </tr>
-                                <?php endforeach?>
+                                <tr class="data-list data-name">
+                                    <td><button id="hireBtn"><?=$result['nama']?></button></td>
+                                </tr> <?php endforeach?>
                             </table>
+                            </div>
+
+                            <div class="table-fixed">
+                                <table>
+                                    <tr class="data-title">
+                                    <th>Kelas</th>
+                                    </tr>
+                                    <?php 
+            foreach ($results as $result) :?>
+                                    <tr class="data-list">
+                                    <td><button id="hireBtn"><?=$result['kelas']?></button></td>
+                                    </tr> <?php endforeach?>
+                                </table>
+                           
                             </div>
                             <div class="table-scrollable">
                             <table>
