@@ -10,10 +10,6 @@ elseif ($_SESSION['privilege'] != 'admin') {
     header("location:login.php");
 }
 
-$kelas = "";
-$tahun = "";
-$alert = "";
-$nis = "";
 $pencarian = "";
 
 if (isset($_GET['pencarian']) && $_GET['pencarian'] != '') {
@@ -183,7 +179,7 @@ $results = mysqli_fetch_all($query, MYSQLI_ASSOC);
                                 <button type="submit" class="links delete-link" name="hapus" value="hapus"><i class='bx bx-trash' ></i></button>
                                 
                                 
-                                <a class="links print-link" href="print.php"><i class='bx bx-printer'></i></a>
+
                             </td>
                             <!-- fitur admin -->
                           </tr>
