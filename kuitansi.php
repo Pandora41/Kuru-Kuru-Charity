@@ -172,7 +172,7 @@ $resultsa = mysqli_fetch_all($querya, MYSQLI_ASSOC);
                             <!-- fitur admin -->
                             <td class="option">
                             
-                                <a class="links print-link" href="print.php?no=<?=$result['no']?>"><i class='bx bx-printer'></i></a>
+                                <a class="links print-link" href="print_pengeluaran.php?no=<?=$result['no']?>"><i class='bx bx-printer'></i></a>
                             </td>
                             <!-- fitur admin -->
                           </tr>
