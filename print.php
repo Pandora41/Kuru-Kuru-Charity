@@ -43,6 +43,10 @@ $pdf->Ln();
 // Mengatur font
 $pdf->SetFont('Arial','',12);
 // Mencetak data kwitansi
+$pdf->Cell(30,7,'No Kwitansi',0,0);
+$pdf->Cell(5,7,':',0,0);
+// Mengambil data nis dari form sebelumnya
+$pdf->Cell(155,7,$no,0,1);
 $pdf->Cell(30,7,'NIS',0,0);
 $pdf->Cell(5,7,':',0,0);
 // Mengambil data nis dari form sebelumnya
