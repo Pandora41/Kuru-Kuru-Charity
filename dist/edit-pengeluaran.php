@@ -13,8 +13,6 @@ if(isset($_POST['hapus'])) {
 
 $delete = mysqli_query($connect, "DELETE FROM `pengeluaran` WHERE `no` = '$no'");
 
-$insert = mysqli_query($connect, "INSERT INTO `kwitansi_keluar`(`tanggal_cetak`, `keterangan`, `jumlah`) VALUES (CURRENT_TIMESTAMP,'$keterangan','$beda')");
-
 $insert = mysqli_query($connect, "INSERT INTO `log`(`keterangan`, `user`, `isi`) VALUES ('Mengahapus Pengeluaran','Admin','$keterangan')");
 
 
