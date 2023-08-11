@@ -3,7 +3,6 @@
 
 include('connect.php');
 
-if (isset($_GET['no']) && $_GET['no'] != "" ) {
 $no = $_GET['no'];
 
 $query = mysqli_query($connect, "SELECT * FROM kwitansi_masuk WHERE `no` = '$no'");
@@ -14,16 +13,6 @@ $kelas = $results[0]['kelas'];
 $nominal = $results[0]['jumlah_bayar'];
 $tanggal = $results[0]['tanggal_cetak'];
 $nis = $results[0]['nis'];
-} else {
-    $nis = $_GET['nis'];
-    $bulan = strtolower($_GET['bulan']); 
-    $query = mysqli_query($connect, "SELECT * FROM pemasukan WHERE nis='$nis' LIMIT 1");
-    $results = mysqli_fetch_all ($query, MYSQLI_ASSOC);
-    $nama = $results[0]['nama'];
-    $kelas = $results[0]['kelas'];
-    $nominal = $results[0][$bulan];
-    $tanggal = $results[0]['tanggal_'. $bulan];
-}
 
 
 

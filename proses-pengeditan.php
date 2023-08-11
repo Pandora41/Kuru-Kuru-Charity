@@ -31,12 +31,14 @@ if (isset($_POST['edit'])) {
 
 $update = mysqli_query($connect, "UPDATE `pemasukan` SET `$bulan` = '$nominal', `tanggal_$bulan` = CURRENT_TIMESTAMP, `total` = '$total' WHERE `nis` = '$nis'");
 $insert = mysqli_query($connect, "INSERT INTO `kwitansi_masuk`(`tanggal_cetak`, `nis`, `nama`, `kelas`, `bulan`, `jumlah_bayar`) VALUES (CURRENT_TIMESTAMP,'$nis','$nama','$kelas','$bulan','$selisih')");
-
+if ($insert) {
+    $no = mysqli_insert_id($connect); 
+}
 $insert = mysqli_query($connect, "INSERT INTO `log`(`keterangan`, `user`, `target`) VALUES ('Mengedit Pemasukan Dari','Admin','$nama')");
 
 
 if($update){
-header("location:pendapatan.php?kelas=$getKelas&tahun=$getTahun&pencarian=$getPencarian");
+header("location:print.php?no=$no");
 }
 else
 echo "Input Gagal";
