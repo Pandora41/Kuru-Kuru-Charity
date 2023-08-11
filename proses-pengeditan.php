@@ -6,31 +6,20 @@ $nama = $_POST['nama'];
 $nominal = $_POST['nominal'];
 $bulan = $_POST['bulan'];
 $kelas = $_POST['kelas'];
-$nominalAwal = ($_POST['nominalAwal']);
 
 
 $getTahun = $_GET['tahun'];
 $getKelas = $_GET['kelas'];
 $getPencarian = $_GET['pencarian'];
 
-$query = "SELECT `total` FROM `pemasukan` WHERE `nis` = $nis";
-$result = mysqli_query($connect, $query);
-$row = mysqli_fetch_assoc($result);
-$totalasli = $row['total'];
-$total = $row['total'];
 
-$total -= $nominalAwal;
-$total += $nominal;
-
-$selisih = $nominal - $nominalAwal;
-$totalasli += $selisih;
 
 // echo $total;
 
 if (isset($_POST['edit'])) {
 
 $update = mysqli_query($connect, "UPDATE `pemasukan` SET `$bulan` = '$nominal', `tanggal_$bulan` = CURRENT_TIMESTAMP, `total` = '$total' WHERE `nis` = '$nis'");
-$insert = mysqli_query($connect, "INSERT INTO `kwitansi_masuk`(`tanggal_cetak`, `nis`, `nama`, `kelas`, `bulan`, `jumlah_bayar`) VALUES (CURRENT_TIMESTAMP,'$nis','$nama','$kelas','$bulan','$selisih')");
+$insert = mysqli_query($connect, "INSERT INTO `kwitansi_masuk`(`tanggal_cetak`, `nis`, `nama`, `kelas`, `bulan`, `jumlah_bayar`) VALUES (CURRENT_TIMESTAMP,'$nis','$nama','$kelas','$bulan','$nominal')");
 if ($insert) {
     $no = mysqli_insert_id($connect); 
 }
