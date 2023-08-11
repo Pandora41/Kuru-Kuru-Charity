@@ -1,9 +1,6 @@
 <?php
-session_start();
 
-if(isset($_SESSION['privilege'])) {
-    echo $_SESSION['privilege'];
-}
+$_SESSION['privilege'] = "";
 
 $conn = mysqli_connect('localhost','root','','SPMP');
 if ($conn->connect_error) {
@@ -24,7 +21,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
 
         if ($privilege == 'admin') {
             echo "Selamat datang, Admin!";
-            $_SESSION['privilege'] = "admin";
+            $_SESSION['privilege'] = 'admin';
 
             header("Location: index.php");
             exit();
@@ -52,21 +49,45 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     }
 }
 ?>
-
 <!DOCTYPE html>
-<html>
+<html lang="en">
+
 <head>
-    <title>Form Login</title>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="css/style-login.css">
+    <link rel="shortcut icon" href="image/icon.svg" type="">
+    <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
+    <link rel="stylesheet" href="https://unicons.iconscout.com/release/v4.0.0/css/line.css">
+    <title>SPMP</title>
 </head>
+
 <body>
-    <h2>Form Login</h2>
     <form method="post" action="<?php echo htmlspecialchars($_SERVER["PHP_SELF"]); ?>">
-        <label for="nip">NIP:</label>
-        <input type="text" name="nip" required><br><br>
-        <label for="password">Password:</label>
-        <input type="password" name="password" required><br><br>
-        <input type="submit" value="login">
+        <div class="container">
+            <img class="image" src="image/loginn.jpg" alt="">
+            <div class="login">
+                <div class="action">
+                    <div class="head">
+                        <h1 class="title">Selamat datang di SMPM</h1>
+                        <h3 class="subtitle">sebuah aplikasi berbasis website yang dirancang untuk menyimpan dan menganalisis data uang sumbangan siswa.</h3>
+                    </div>
+                    <div class="input">
+                        <div class="username">
+                            <h3>NIP</h3>
+                            <input type="text" name="nip" class="input-username" required>
+                        </div>
+                        <div class="password">
+                            <h3>password</h3>
+                            <input type="password" name="password" class="input-password" required>
+                        </div>
+                    </div>
+                    <input type="submit" value="login" class="submit">
+                </div>
+            </div>
+        </div>
     </form>
 </body>
+
 </html>
