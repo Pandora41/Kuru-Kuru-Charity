@@ -19,6 +19,9 @@ $alert = "";
 $nis = "";
 $pencarian = "";
 
+$query = mysqli_query($connect, "SELECT * FROM `pemasukan` ORDER BY tahun, kelas");
+$results = mysqli_fetch_all($query, MYSQLI_ASSOC);
+
 if (isset($_GET['pencarian']) && $_GET['pencarian'] != '') {
     $pencarian = $_GET['pencarian'];
     $query = mysqli_query($connect, "SELECT * FROM `pemasukan` WHERE `nis` LIKE '%$pencarian%' OR `nama` LIKE '%$pencarian%'");
@@ -26,9 +29,6 @@ if (isset($_GET['pencarian']) && $_GET['pencarian'] != '') {
 
 } 
 else {
-
-    $query = mysqli_query($connect, "SELECT * FROM `pemasukan` ORDER BY tahun, kelas");
-    $results = mysqli_fetch_all($query, MYSQLI_ASSOC);
 
     if(isset($_GET['kelas']) && $_GET['kelas'] != '') {
 
@@ -66,8 +66,17 @@ else {
 
 }
 
+if (isset($_GET['tahun']) && isset($_GET['kelas']) && isset($_GET['pencarian'])) {
+   
+
+    if ($_GET['pencarian'] == '' && $_GET['tahun'] == '' && $_GET['kelas'] == '') {
+        $query = mysqli_query($connect, "SELECT * FROM `pemasukan` ORDER BY tahun, kelas");
+    $results = mysqli_fetch_all($query, MYSQLI_ASSOC);
+    }
+}
+
 $querys = mysqli_query($connect, "SELECT * FROM `data`");
-    $resultss = mysqli_fetch_assoc($querys);
+$resultss = mysqli_fetch_assoc($querys);
 
 
 $total = "SELECT SUM(total) as total_sum FROM pemasukan";
@@ -607,7 +616,6 @@ $totalSumKelas = $rowKelas['total_sum'];
             <div class="btn-action">
                 <input type="submit" class="btn btn1" name="edit" value="Edit">
                 <input type="submit" class="btn btn2" name="hapus" value="Hapus">
-                <input type="submit" class="btn btn3" name="print" value="Print">
             </div>
                 </form>
         </div>
