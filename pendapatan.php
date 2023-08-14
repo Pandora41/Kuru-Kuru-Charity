@@ -4,13 +4,13 @@
 include "connect.php";
 session_start();
 
-if ($_SESSION['privilege'] == "user") {
-    header("location:index.php");
-}
+// if ($_SESSION['privilege'] == "user") {
+//     header("location:index.php");
+// }
 
-elseif ($_SESSION['privilege'] != 'admin') {
-    header("location:login.php");
-}
+// elseif ($_SESSION['privilege'] != 'admin') {
+//     header("location:login.php");
+// }
 
 
 $kelas = "";
@@ -364,7 +364,7 @@ $totalSumKelas = $rowKelas['total_sum'];
                                 data-nama="<?= $result['nama'] ?>"
                                 data-bulan="Juli"
                                 data-kelas="<?= $result['kelas'] ?>"
-                                ><i class='bx bx-plus'></i></button></td> 
+                                ><i class='bx bx-minus'></i></button></td> 
                                 
                                 <?php } else {?>
                                 <td><button class="hireBtn"
@@ -382,7 +382,7 @@ $totalSumKelas = $rowKelas['total_sum'];
                                 data-nama="<?= $result['nama'] ?>"
                                 data-bulan="Agustus"
                                 data-kelas="<?= $result['kelas'] ?>"
-                                ><i class='bx bx-plus'></i></button></td> 
+                                ><i class='bx bx-minus'></i></button></td> 
                                 
                                 <?php } else {?>
                                 <td><button class="hireBtn"
@@ -399,7 +399,7 @@ $totalSumKelas = $rowKelas['total_sum'];
                                 data-nis="<?= $result['nis'] ?>"
                                 data-nama="<?= $result['nama'] ?>"
                                 data-bulan="September"
-                                data-kelas="<?= $result['kelas'] ?>"><i class='bx bx-plus'></i></button></td>
+                                data-kelas="<?= $result['kelas'] ?>"><i class='bx bx-minus'></i></button></td>
                                 
                                 <?php } else {?>
                                 <td><button class="hireBtn"
@@ -416,7 +416,7 @@ $totalSumKelas = $rowKelas['total_sum'];
                                 data-nis="<?= $result['nis'] ?>"
                                 data-nama="<?= $result['nama'] ?>"
                                 data-bulan="Oktober"
-                                data-kelas="<?= $result['kelas'] ?>"><i class='bx bx-plus'></i></button></td>
+                                data-kelas="<?= $result['kelas'] ?>"><i class='bx bx-minus'></i></button></td>
                                 
                                 <?php } else {?>
                                 <td><button class="hireBtn"
@@ -433,7 +433,7 @@ $totalSumKelas = $rowKelas['total_sum'];
                                 data-nis="<?= $result['nis'] ?>"
                                 data-nama="<?= $result['nama'] ?>"
                                 data-bulan="November"
-                                data-kelas="<?= $result['kelas'] ?>"><i class='bx bx-plus'></i></button></td>
+                                data-kelas="<?= $result['kelas'] ?>"><i class='bx bx-minus'></i></button></td>
                                 
                                 <?php } else {?>
                                 <td><button class="hireBtn"
@@ -450,7 +450,7 @@ $totalSumKelas = $rowKelas['total_sum'];
                                 data-nis="<?= $result['nis'] ?>"
                                 data-nama="<?= $result['nama'] ?>"
                                 data-bulan="Desember"
-                                data-kelas="<?= $result['kelas'] ?>"><i class='bx bx-plus'></i></button></td>
+                                data-kelas="<?= $result['kelas'] ?>"><i class='bx bx-minus'></i></button></td>
                                 
                                 <?php } else {?>
                                 <td><button class="hireBtn"
@@ -467,7 +467,7 @@ $totalSumKelas = $rowKelas['total_sum'];
                                 data-nis="<?= $result['nis'] ?>"
                                 data-nama="<?= $result['nama'] ?>"
                                 data-bulan="Januari"
-                                data-kelas="<?= $result['kelas'] ?>"><i class='bx bx-plus'></i></button></td>
+                                data-kelas="<?= $result['kelas'] ?>"><i class='bx bx-minus'></i></button></td>
                                 
                                 <?php } else {?>
                                 <td><button class="hireBtn"
@@ -484,7 +484,7 @@ $totalSumKelas = $rowKelas['total_sum'];
                                 data-nis="<?= $result['nis'] ?>"
                                 data-nama="<?= $result['nama'] ?>"
                                 data-bulan="Februari"
-                                data-kelas="<?= $result['kelas'] ?>"><i class='bx bx-plus'></i></button></td>
+                                data-kelas="<?= $result['kelas'] ?>"><i class='bx bx-minus'></i></button></td>
 
                                 <?php } else {?>
                                 <td><button class="hireBtn"
@@ -501,7 +501,7 @@ $totalSumKelas = $rowKelas['total_sum'];
                                 data-nis="<?= $result['nis'] ?>"
                                 data-nama="<?= $result['nama'] ?>"
                                 data-bulan="Maret"
-                                data-kelas="<?= $result['kelas'] ?>"><i class='bx bx-plus'></i></button></td>
+                                data-kelas="<?= $result['kelas'] ?>"><i class='bx bx-minus'></i></button></td>
                                 
                                 <?php } else {?>
                                 <td><button class="hireBtn"
@@ -518,7 +518,7 @@ $totalSumKelas = $rowKelas['total_sum'];
                                 data-nis="<?= $result['nis'] ?>"
                                 data-nama="<?= $result['nama'] ?>"
                                 data-bulan="April"
-                                data-kelas="<?= $result['kelas'] ?>"><i class='bx bx-plus'></i></button></td>
+                                data-kelas="<?= $result['kelas'] ?>"><i class='bx bx-minus'></i></button></td>
                                 
                                 <?php } else {?>
                                 <td><button class="hireBtn"
@@ -535,7 +535,7 @@ $totalSumKelas = $rowKelas['total_sum'];
                                 data-nis="<?= $result['nis'] ?>"
                                 data-nama="<?= $result['nama'] ?>"
                                 data-bulan="Mei"
-                                data-kelas="<?= $result['kelas'] ?>"><i class='bx bx-plus'></i></button></td>
+                                data-kelas="<?= $result['kelas'] ?>"><i class='bx bx-minus'></i></button></td>
                                 
                                 <?php } else {?>
                                 <td><button class="hireBtn"
@@ -552,7 +552,7 @@ $totalSumKelas = $rowKelas['total_sum'];
                                 data-nis="<?= $result['nis'] ?>"
                                 data-nama="<?= $result['nama'] ?>"
                                 data-bulan="Juni"
-                                data-kelas="<?= $result['kelas'] ?>"><i class='bx bx-plus'></i></button></td>
+                                data-kelas="<?= $result['kelas'] ?>"><i class='bx bx-minus'></i></button></td>
                                 
                                 <?php } else {?>
                                 <td><button class="hireBtn"

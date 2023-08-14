@@ -64,7 +64,7 @@ $pdf->Ln();
 $pdf->Ln();
 $pdf->Ln();
 $pdf->Cell(140);
-$pdf->Cell(30,6,$nama,0,1,'C');
+$pdf->Cell(30,6,"Komite",0,1,'C');
 // Menyimpan file PDF
 $pdf->Output()
 ?>

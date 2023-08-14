@@ -2,13 +2,13 @@
 include "connect.php";
 session_start();
 
-if ($_SESSION['privilege'] == "user") {
-    header("location:index.php");
-}
+// if ($_SESSION['privilege'] == "user") {
+//     header("location:index.php");
+// }
 
-elseif ($_SESSION['privilege'] != 'admin') {
-    header("location:login.php");
-}
+// elseif ($_SESSION['privilege'] != 'admin') {
+//     header("location:login.php");
+// }
 $total = "SELECT SUM(total) as total_sum FROM pemasukan";
 $hasiltotal = $connect->query($total);
 $rowa = $hasiltotal->fetch_assoc();
@@ -137,7 +137,7 @@ $saldo = $totalSum - $totalPengeluaran;
                     <span class="text">Aktivitas</span>
                 </div>
 
-                <div class="activity-data">
+                <!-- <div class="activity-data">
                     <div class="data time">
                         <span class="data-title">Waktu</span>
                         <span class="data-list">3 April 2007 -  02:20:37</span>
@@ -174,7 +174,7 @@ $saldo = $totalSum - $totalPengeluaran;
                         <span class="data-list"> - Kepsek@gmail.com log in</span>
                         <span class="data-list"> - Komite@gmail.com viewed Pengeluaran</span>
                     </div>
-                </div>
+                </div> -->
             </div>
         </div>
     </section>

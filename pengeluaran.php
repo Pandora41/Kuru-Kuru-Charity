@@ -2,13 +2,13 @@
 include "connect.php";
 session_start();
 
-if ($_SESSION['privilege'] == "user") {
-    header("location:index.php");
-}
+// if ($_SESSION['privilege'] == "user") {
+//     header("location:index.php");
+// }
 
-elseif ($_SESSION['privilege'] != 'admin') {
-    header("location:login.php");
-}
+// elseif ($_SESSION['privilege'] != 'admin') {
+//     header("location:login.php");
+// }
 
 $pencarian = "";
 
