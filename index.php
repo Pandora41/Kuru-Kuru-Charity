@@ -70,7 +70,7 @@ $saldo = $totalSum - $totalPengeluaran;
             </ul>
             
             <ul class="logout-mode">
-                <li><a class="list-link" href="#">
+                <li><a class="list-link" href="login.php">
                     <i class="uil uil-signout"></i>
                     <span class="link-name">Logout</span>
                 </a></li>

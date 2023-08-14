@@ -147,7 +147,7 @@ $totalSumKelas = $rowKelas['total_sum'];
             </ul>
 
             <ul class="logout-mode">
-                <li><a href="#">
+                <li><a href="login.php">
                         <i class="uil uil-signout"></i>
                         <span class="link-name">Logout</span>
                     </a></li>
