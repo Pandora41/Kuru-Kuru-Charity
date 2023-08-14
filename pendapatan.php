@@ -616,6 +616,7 @@ $totalSumKelas = $rowKelas['total_sum'];
             <div class="btn-action">
                 <input type="submit" class="btn btn1" name="edit" value="Edit">
                 <input type="submit" class="btn btn2" name="hapus" value="Hapus">
+                <input type="submit" class="btn btn3" name="print" value="Print">
             </div>
                 </form>
         </div>
