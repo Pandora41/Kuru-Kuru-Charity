@@ -77,7 +77,13 @@ echo "Input Gagal";
 }
 
 if (isset($_POST['print'])) {
-    header("location:print.php?nis=$nis&bulan=$bulan");
+$insert = mysqli_query($connect, "INSERT INTO `kwitansi_masuk`(`tanggal_cetak`, `nis`, `nama`, `kelas`, `bulan`, `jumlah_bayar`) VALUES (CURRENT_TIMESTAMP,'$nis','$nama','$kelas','$bulan','$nominal')");
+if ($insert) {
+    $no = mysqli_insert_id($connect); 
+}
+$insert = mysqli_query($connect, "INSERT INTO `log`(`keterangan`, `user`, `target`) VALUES ('Mengeprint Pemasukan Dari','Admin','$nama')");
+
+    header("location:print.php?no=$no");
 }
 
 ?>
