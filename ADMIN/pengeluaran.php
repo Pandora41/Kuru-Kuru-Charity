@@ -86,7 +86,7 @@ $results = mysqli_fetch_all($query, MYSQLI_ASSOC);
             </ul>
     
             <ul class="logout-mode">
-                <li><a href="login.php">
+                <li><a href="./../login.php">
                         <i class="uil uil-signout"></i>
                         <span class="link-name">Logout</span>
                     </a></li>
@@ -144,10 +144,9 @@ $results = mysqli_fetch_all($query, MYSQLI_ASSOC);
             </div>
 
             <div class="activity">
-                <br>
-                <!-- <div class="header-activity">
+                <div class="header-activity">
                     <a class="links add-link" href="dist/add-pengeluaran.php"><i class='bx bx-plus-circle'></i>Tambah</a>
-                </div> -->
+                </div>
                 <div class="activity-data">
                     <div class="table-container">
                         <table>
@@ -157,7 +156,7 @@ $results = mysqli_fetch_all($query, MYSQLI_ASSOC);
                             <th class="wide-column">Keterangan</th>
                             <th>Nominal</th>
                             <!-- fitur admin -->
-                            <!-- <th>Opsi</th> -->
+                            <th>Opsi</th>
                             <!-- fitur admin -->
                           </tr>
                           <?php 
@@ -176,9 +175,9 @@ $results = mysqli_fetch_all($query, MYSQLI_ASSOC);
                                 <input type="hidden" name="tanggal_pengeluaran" value="<?=$result['tanggal_pengeluaran']?>">
                                 <input type="hidden" name="keterangan" value="<?=$result['keterangan']?>">
                                 <input type="hidden" name="jumlah" value="<?=$result['jumlah']?>">
-                                <!-- <button type="submit" class="links edit-link" name="edit" value="edit"><i class='bx bx-edit-alt' ></i></button>
+                                <button type="submit" class="links edit-link" name="edit" value="edit"><i class='bx bx-edit-alt' ></i></button>
                                 <button type="submit" class="links delete-link" name="hapus" value="hapus"><i class='bx bx-trash' ></i></button>
-                                 -->
+                                
                                 
 
                             </td>

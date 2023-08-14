@@ -24,21 +24,14 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
             echo "Selamat datang, Admin!";
             $_SESSION['privilege'] = 'admin';
 
-            header("Location: index.php");
+            header("Location: ADMIN/index.php");
             exit();
 
         } elseif ($privilege == 'user') {
             echo "Selamat datang, User!";
             $_SESSION['privilege'] = 'user'; 
 
-            header("Location: user.php");
-            exit();
-
-        } elseif ($privilege == 'user') {
-            echo "Selamat datang, user!";
-            $_SESSION['privilege'] = 'user'; 
-
-            header("Location: user.php");
+            header("Location: index.php");
             exit();
 
         } else {

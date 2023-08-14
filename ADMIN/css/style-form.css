@@ -1,0 +1,107 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@200;300;400;500;600&display=swap');
+@import url(style.css);
+*{
+    margin: 0;
+    padding: 0;
+    list-style: none;
+    box-sizing: border-box;
+    font-family: 'Poppins', sans-serif;
+}
+.container{
+    width: 100%;
+    max-width: 1140px;
+    height: 100vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    align-items: center;
+    padding: 28px 0;
+    margin-left: auto;
+    margin-right: auto;
+}
+.header-form{
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    
+}
+.header-form a{
+    width: fit-content;
+    display: flex;
+    justify-content: flex-start;
+    font-size: 24px;
+    text-decoration: none;
+    background-color: var(--primary-color);
+    color: var(--box3-color);
+    padding: 8px;
+    border-radius: 8px;
+}
+.header-form .title-form{
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    font-size: 36px;
+    font-weight: 600;
+}
+.input-data{
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    height: 240px;
+    width: 500px;
+}
+.input-data .data{
+    display: flex;
+    justify-content: space-between;
+    font-size: 18px;
+    font-weight: 500;
+}
+.input-data .input-number{
+    align-items: center;
+}
+.input-data input,
+.input-data textarea{
+    width: 360px;
+    padding: 12px;
+    font-size: 16px;
+    border-radius: 8px;
+    color: var(--text-color);
+    outline: none;
+    border: 1px var(--border-color) solid;
+}
+.btn-form input,
+.btn-form a{
+    padding: 8px 24px;
+    border-radius: 8px;
+    color: var(--panel-color);
+    background-color: var(--primary-color);
+    border: none;
+    outline: none;
+    cursor: pointer;
+    font-size: 16px;
+    font-weight: 500;
+    box-shadow: 0px 0.3px 2.2px rgba(0, 0, 0, 0.021),
+                0px 0.8px 5.3px rgba(0, 0, 0, 0.033),
+                0px 1.5px 10px rgba(0, 0, 0, 0.042),
+                0px 2.7px 17.9px rgba(0, 0, 0, 0.052),
+                0px 5px 33.4px rgba(0, 0, 0, 0.063),
+                0px 12px 80px rgba(0, 0, 0, 0.09);
+    transition: all 0.3s;
+    color: var(--box3-color);
+    text-decoration: none;
+}
+.btn-form input:hover{
+    background-color: var(--primaryhover-color);
+    box-shadow: 0px 1.9px 2.2px rgba(0, 0, 0, 0.021),
+                0px 4.6px 5.3px rgba(0, 0, 0, 0.033),
+                0px 8.6px 10px rgba(0, 0, 0, 0.042),
+                0px 15.4px 17.9px rgba(0, 0, 0, 0.052),
+                0px 28.8px 33.4px rgba(0, 0, 0, 0.063),
+                0px 69px 80px rgba(0, 0, 0, 0.09);
+}
+.btn-form a{
+    background-color: var(--panel-color);
+    border : 1px var(--primary-color) solid;
+    color: var(--primary-color);
+    margin-left: 12px;
+}

@@ -147,7 +147,7 @@ $totalSumKelas = $rowKelas['total_sum'];
             </ul>
 
             <ul class="logout-mode">
-                <li><a href="login.php">
+                <li><a href="./../login.php">
                         <i class="uil uil-signout"></i>
                         <span class="link-name">Logout</span>
                     </a></li>
@@ -634,7 +634,7 @@ $totalSumKelas = $rowKelas['total_sum'];
                     <span class="text">Kelas</span>
                 </div>
 
-                <!-- <form action="proses-pendapatan.php?kelas=<$kelas?>&tahun=<$tahun?>&pencarian==$pencarian?>" method="POST">
+                <form action="proses-pendapatan.php?kelas=<?=$kelas?>&tahun=<?=$tahun?>&pencarian=<?=$pencarian?>" method="POST">
     <div class="data input-box">
         <input type="text" name="nis" id="nisInput" readonly>
         <input type="text" name="nama" id="namaInput" readonly>
@@ -646,9 +646,9 @@ $totalSumKelas = $rowKelas['total_sum'];
         <input type="submit" value="Tambah" class="btn btn1">
         <a id="closeBtn" class="btn closeBtn" href="#">Batal</a>
     </div>
-</form> -->
+</form>
 
-                                    
+
         </div>
     </div>
     <script src="js/script-pendapatan.js"></script>

@@ -1,0 +1,89 @@
+@import url(style.css);
+.header-activity {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    margin: 60px 0 30px 0;
+}
+.links{
+    padding: 8px 18px;
+    text-decoration: none;
+    border-radius: 8px;
+}
+.add-link{
+    font-size: 16px;
+    color: var(--box3-color);
+    background-color: var(--primary-color);
+}
+.edit-link i,
+.edit-link ion-icon,
+.delete-link i,
+.print-link i{
+    color: var(--box3-color);
+    font-size: 20px;
+    
+}
+.edit-link{ 
+    padding: 8px 10px 8px 10px;
+    background-color: var(--edit-color);
+}
+.delete-link{ 
+    padding: 8px 10px 6px 10px;
+    background-color: var(--delete-color);
+}
+.print-link{ 
+    padding: 8px 10px 6px 10px;
+    background-color: var(--primary-color);
+}
+.add-link i{
+    position: relative;
+    top: 2.5px;
+    padding-right: 4px;
+    font-size: 18px;
+}
+.table-container {
+    overflow-x: auto;
+  }
+  
+  table {
+    border-collapse: collapse;
+    width: 100%;
+  }
+  
+  th, td {
+    padding: 8px;
+    text-align: left;
+    color: var(--text-color);  
+}
+  th{
+    font-size: 20px;
+    font-weight: 500;
+  }
+  td{
+    font-size: 18px;
+    font-weight: 400;
+  }
+  .small-column {
+    width: 30px;
+  }
+  
+  .wide-column {
+    width: 600px;
+  }
+ .option{
+  display: flex;
+  justify-content: space-between;
+  width: 100%;
+  padding: 0 8px;
+ }
+  
+  @media (max-width: 600px) {
+    th, td {
+      
+      width: 100%;
+    }
+  
+    th {
+      text-align: center;
+    }
+  }
