@@ -64,7 +64,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
             <div class="login">
                 <div class="action">
                     <div class="head">
-                        <h1 class="title">Selamat datang di SMPM</h1>
+                        <h1 class="title">Selamat datang di SPMP</h1>
                         <h3 class="subtitle">sebuah aplikasi berbasis website yang dirancang untuk menyimpan dan menganalisis data uang sumbangan siswa.</h3>
                     </div>
                     <div class="input">

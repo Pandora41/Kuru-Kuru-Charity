@@ -638,7 +638,7 @@ $totalSumKelas = $rowKelas['total_sum'];
     <div class="data input-box">
         <input type="text" name="nis" id="nisInput" readonly>
         <input type="text" name="nama" id="namaInput" readonly>
-        <input type="text" name="nominal" id="" value="">
+        <input type="text" name="nominal" id="" value="0">
         <input type="text" name="bulan" id="bulanInput" readonly>
         <input type="text" name="kelas" id="kelasInput" readonly>
     </div>

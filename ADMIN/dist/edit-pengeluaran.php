@@ -23,6 +23,29 @@ else
 echo "Input Gagal";
 
 }
+
+if(isset($_POST['print'])) {
+
+
+$query = mysqli_query($connect, "SELECT * FROM `kwitansi_keluar` WHERE `no` = $no LIMIT 1");
+$results = mysqli_fetch_all($query, MYSQLI_ASSOC);
+
+
+// $insert = mysqli_query($connect, "INSERT INTO `kwitansi_keluar`(`tanggal_cetak`, `nis`, `nama`, `kelas`, `bulan`, `jumlah_bayar`) VALUES ('$tanggal','$nis','$nama','$kelas','$bulan','$nominal')");
+
+$insert = mysqli_query($connect, "INSERT INTO `kwitansi_keluar`(`tanggal_cetak`, `keterangan`, `jumlah`) VALUES ('$tanggal','$keterangan','$nominal')");
+
+if ($insert) {
+    $no = mysqli_insert_id($connect); 
+}
+$insert = mysqli_query($connect, "INSERT INTO `log`(`keterangan`, `user`, `target`) VALUES ('Mengeprint Pengeluaran Dari','Admin','$nama')");
+
+header("location:./../print_pengeluaran.php?no=$no");
+
+
+
+}
+
 ?>
 
 <!DOCTYPE html>

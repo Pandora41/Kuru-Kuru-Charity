@@ -156,7 +156,7 @@ $results = mysqli_fetch_all($query, MYSQLI_ASSOC);
                             <th class="wide-column">Keterangan</th>
                             <th>Nominal</th>
                             <!-- fitur admin -->
-                            <th>Opsi</th>
+                            <th><center>Opsi</  ></th>
                             <!-- fitur admin -->
                           </tr>
                           <?php 
@@ -176,6 +176,7 @@ $results = mysqli_fetch_all($query, MYSQLI_ASSOC);
                                 <input type="hidden" name="keterangan" value="<?=$result['keterangan']?>">
                                 <input type="hidden" name="jumlah" value="<?=$result['jumlah']?>">
                                 <button type="submit" class="links edit-link" name="edit" value="edit"><i class='bx bx-edit-alt' ></i></button>
+                                <button type="submit" class="links print-link" name="print" value="print"><i class='bx bx-printer' ></i></button>
                                 <button type="submit" class="links delete-link" name="hapus" value="hapus"><i class='bx bx-trash' ></i></button>
                                 
                                 
