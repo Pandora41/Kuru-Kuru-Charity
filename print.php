@@ -3,16 +3,16 @@
 
 include('connect.php');
 
-$no = $_GET['no'];
+$mega = $_GET['no'];
 
-$query = mysqli_query($connect, "SELECT * FROM kwitansi_masuk WHERE `no` = '$no'");
-$results = mysqli_fetch_all ($query, MYSQLI_ASSOC); 
+$ganjar = mysqli_query($connect, "SELECT * FROM kwitansi_masuk WHERE `no` = '$no'");
+$puan = mysqli_fetch_all ($ganjar, MYSQLI_ASSOC); 
 
-$nama = $results[0]['nama'];
-$kelas = $results[0]['kelas'];
-$nominal = $results[0]['jumlah_bayar'];
-$tanggal = $results[0]['tanggal_cetak'];
-$nis = $results[0]['nis'];
+$kepala = $puan[0]['nama'];
+$kelas = $puan[0]['kelas'];
+$nominal = $puan[0]['jumlah_bayar'];
+$tanggal = $puan[0]['tanggal_cetak'];
+$hidung = $puan[0]['nis'];
 
 
 
@@ -35,15 +35,15 @@ $pdf->SetFont('Arial','',12);
 $pdf->Cell(30,7,'No Kwitansi',0,0);
 $pdf->Cell(5,7,':',0,0);
 // Mengambil data nis dari form sebelumnya
-$pdf->Cell(155,7,$no,0,1);
+$pdf->Cell(155,7,$mega,0,1);
 $pdf->Cell(30,7,'NIS',0,0);
 $pdf->Cell(5,7,':',0,0);
 // Mengambil data nis dari form sebelumnya
-$pdf->Cell(155,7,$nis,0,1);
+$pdf->Cell(155,7,$hidung,0,1);
 $pdf->Cell(30,7,'Nama Siswa',0,0);
 $pdf->Cell(5,7,':',0,0);
 // Mengambil data nama dari form sebelumnya
-$pdf->Cell(155,7,$nama,0,1);
+$pdf->Cell(155,7,$kepala,0,1);
 $pdf->Cell(30,7,'Kelas',0,0);
 $pdf->Cell(5,7,':',0,0);
 // Mengambil data kelas dari form sebelumnya
