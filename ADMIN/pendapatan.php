@@ -262,6 +262,10 @@ $totalSumKelas = $rowKelas['total_sum'];
     <option value="X-AM-2" <?php echo ($kelas== 'X-AM-2') ? 'selected' : ''; ?>>X-AM-2</option>
                         </select>
                     </div>
+                     <div class="select-1">
+                         <span class="select-title">Upload</span>
+                        <button>Upload Data Siswa</button>
+                    </div>
                 </div>
 
                 <!-- JS SCRIPT AUTO REFRESH -->
