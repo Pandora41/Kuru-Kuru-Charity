@@ -11,7 +11,9 @@
     <title>SPMP</title>
 </head>
 <body> 
-    <form action="../process-tambah-pengeluaran.php" METHOD="POST">
+    <!-- <form action="../process-tambah-pengeluaran.php" METHOD="POST"> -->
+    <form action="../pengeluaran.php" METHOD="POST">
+        <input type="hidden" name="testing" value="tambah">
     <div class="container">
         <div class="header-form">
             <a class="undo" href="../pengeluaran.php"><i class='bx bx-chevron-left-circle' ></i></a>

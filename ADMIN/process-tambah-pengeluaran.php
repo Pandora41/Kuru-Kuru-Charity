@@ -1,8 +1,10 @@
 <?php
 include "connect.php";
 
-$keterangan = $_POST['keterangan'];
-$nominal = $_POST['nominal'];
+$_POST['testing'] = "";
+
+$keterangan = $_GET['keterangan'];
+$nominal = $_GET['nominal'];
 
 
 

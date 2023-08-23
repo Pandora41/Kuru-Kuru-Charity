@@ -10,7 +10,15 @@ elseif ($_SESSION['privilege'] != 'admin') {
     header("location:login.php");
 }
 
+if (isset($_POST['testing']) && $_POST['testing'] == "tambah") {
+    $keteranganPrint = urlencode($_POST['keterangan']);
+    $nominalPrint = urlencode($_POST['nominal']);
+    header("location:process-tambah-pengeluaran.php?keterangan=$keteranganPrint&nominal=$nominalPrint");
+}
+
+
 $pencarian = "";
+
 
 if (isset($_GET['pencarian']) && $_GET['pencarian'] != '') {
     $pencarian = $_GET['pencarian'];
