@@ -1,99 +1,5 @@
 
 <!--PHP PEMASUKAN-->
-<?php
-include "connect.php";
-session_start();
-
-// if ($_SESSION['privilege'] == "user") {
-//     header("location:index.php");
-// }
-
-// elseif ($_SESSION['privilege'] != 'admin') {
-//     header("location:login.php");
-// }
-
-
-$kelas = "";
-$tahun = "";
-$alert = "";
-$nis = "";
-$pencarian = "";
-
-$query = mysqli_query($connect, "SELECT * FROM `pemasukan` ORDER BY tahun, kelas");
-$results = mysqli_fetch_all($query, MYSQLI_ASSOC);
-
-if (isset($_GET['pencarian']) && $_GET['pencarian'] != '') {
-    $pencarian = $_GET['pencarian'];
-    $query = mysqli_query($connect, "SELECT * FROM `pemasukan` WHERE `nis` LIKE '%$pencarian%' OR `nama` LIKE '%$pencarian%'");
-    $results = mysqli_fetch_all($query, MYSQLI_ASSOC);
-
-} 
-else {
-
-    if(isset($_GET['kelas']) && $_GET['kelas'] != '') {
-
-        $kelas = $_GET['kelas'];
-        $query = mysqli_query($connect, "SELECT * FROM `pemasukan` WHERE `kelas` = '$kelas'");
-        $results = mysqli_fetch_all($query, MYSQLI_ASSOC);
-
-    }
-
-
-    if(isset($_GET['tahun'])) {
-        $tahun = $_GET['tahun'];
-        $query = mysqli_query($connect, "SELECT * FROM `pemasukan` WHERE `tahun` = '$tahun'");
-        $results = mysqli_fetch_all($query, MYSQLI_ASSOC);
-
-        if(isset($kelas) && $_GET['kelas'] != '') {
-            $query = mysqli_query($connect, "SELECT * FROM `pemasukan` WHERE `kelas` = '$kelas' AND `tahun` = '$tahun'");
-            $results = mysqli_fetch_all($query, MYSQLI_ASSOC);
-        }
-    }
-
-    if(!isset($_GET['tahun']) || $_GET['tahun'] == '') {
-        if(!isset($_GET['NIS'])) {
-        $alert = "Silahkan Pilih Tahun Ajaran";
-        }
-    }
-
-    if(isset($_GET['NIS']) && $_GET['NIS'] != '') {
-
-        $nis = $_GET['NIS'];
-        $query = mysqli_query($connect, "SELECT * FROM `pemasukan` WHERE `nis` = '$nis'");
-        $results = mysqli_fetch_all($query, MYSQLI_ASSOC);
-
-    }
-
-}
-
-if (isset($_GET['tahun']) && isset($_GET['kelas']) && isset($_GET['pencarian'])) {
-   
-
-    if ($_GET['pencarian'] == '' && $_GET['tahun'] == '' && $_GET['kelas'] == '') {
-        $query = mysqli_query($connect, "SELECT * FROM `pemasukan` ORDER BY tahun, kelas");
-    $results = mysqli_fetch_all($query, MYSQLI_ASSOC);
-    }
-}
-
-$querys = mysqli_query($connect, "SELECT * FROM `data`");
-$resultss = mysqli_fetch_assoc($querys);
-
-
-$total = "SELECT SUM(total) as total_sum FROM pemasukan";
-$hasiltotal = $connect->query($total);
-$rowa = $hasiltotal->fetch_assoc();
-$totalSum = $rowa['total_sum'];
-
-$TotalAngkatan = "SELECT SUM(total) as total_sum FROM `pemasukan` WHERE tahun = '$tahun'";
-$hasiltotalAng = $connect->query($TotalAngkatan);
-$rowAng = $hasiltotalAng->fetch_assoc();
-$totalSumAngkatan = $rowAng['total_sum'];
-
-$TotalKelas = "SELECT SUM(total) as total_sum FROM `pemasukan` WHERE tahun = '$tahun' AND kelas = '$kelas'";
-$hasiltotalKelas = $connect->query($TotalKelas);
-$rowKelas = $hasiltotalKelas->fetch_assoc();
-$totalSumKelas = $rowKelas['total_sum'];
-?>
 
 
 <!-- AKHIR PHP PEMASUKAN -->
@@ -267,6 +173,73 @@ $totalSumKelas = $rowKelas['total_sum'];
                                 </table>
                            
                             </div>
+
+                            <div class="table-fixed">
+                                <table>
+                                    <tr class="data-title">
+                                    <th>Agama</th>
+                                    </tr>
+                                    @foreach($siswa as $s)
+                                    <tr class="data-list">
+                                    <td><button id="hireBtn">{{$s->agama}}</button></td>
+                                    </tr> @endforeach
+                                </table>
+                           
+                            </div>
+
+                            <div class="table-fixed">
+                                <table>
+                                    <tr class="data-title">
+                                    <th>Tempat Lahir</th>
+                                    </tr>
+                                    @foreach($siswa as $s)
+                                    <tr class="data-list">
+                                    <td><button id="hireBtn">{{$s->tempat_lahir}}</button></td>
+                                    </tr> @endforeach
+                                </table>
+                           
+                            </div>
+
+                            <div class="table-fixed">
+                                <table>
+                                    <tr class="data-title">
+                                    <th>Tanggal Lahir</th>
+                                    </tr>
+                                    @foreach($siswa as $s)
+                                    <tr class="data-list">
+                                    <td><button id="hireBtn">{{$s->tanggal_lahir}}</button></td>
+                                    </tr> @endforeach
+                                </table>
+                           
+                            </div>
+
+                            <div class="table-fixed">
+                                <table>
+                                    <tr class="data-title">
+                                    <th>Nomor Telephone</th>
+                                    </tr>
+                                    @foreach($siswa as $s)
+                                    <tr class="data-list">
+                                    <td><button id="hireBtn">{{$s->no_hp}}</button></td>
+                                    </tr> @endforeach
+                                </table>
+                           
+                            </div>
+
+                            <div class="table-fixed">
+                                <table>
+                                    <tr class="data-title">
+                                    <th>Alamat</th>
+                                    </tr>
+                                    @foreach($siswa as $s)
+                                    <tr class="data-list">
+                                    <td><button id="hireBtn">{{$s->alamat}}</button></td>
+                                    </tr> @endforeach
+                                </table>
+                           
+                            </div>
+
+
                         </div>
                     </div>
                 </div>
