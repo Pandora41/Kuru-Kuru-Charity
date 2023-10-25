@@ -113,57 +113,6 @@ $totalSumKelas = $rowKelas['total_sum'];
 </head>
 
 <body>
-    <nav>
-        <header>
-            <div class="image-text">
-                <span class="image">
-                    <img src="image/icon.svg" alt="">
-                </span>
-                <div class="text header-text">
-                    <span class="name">SPMP</span>
-                    <span class="subname">SMKN 2 Bandung</span>
-                </div>
-            </div>
-        </header>
-
-        <div class="menu-items">
-            <ul class="nav-links">
-                <li><a class="list-link" href="index.php">
-                        <i class='bx bx-home-alt'></i>
-                        <span class="link-name">Dashboard</span>
-                    </a></li>
-                <li><a class="list-link" href="pendapatan.php">
-                        <i class='bx bxs-archive-in'></i>
-                        <span class="link-name">Pendapatan</span>
-                    </a></li>
-                <li><a class="list-link" href="pengeluaran.php">
-                        <i class='bx bx-archive-out'></i>
-                        <span class="link-name">Pengeluaran</span>
-                    </a></li>
-                <li><a class="list-link" href="kuitansi.php">
-                        <i class='bx bx-receipt'></i>
-                        <span class="link-name">Kuitansi</span>
-                    </a></li>
-            </ul>
-
-            <ul class="logout-mode">
-                <li><a href="login.php">
-                        <i class="uil uil-signout"></i>
-                        <span class="link-name">Logout</span>
-                    </a></li>
-                <li class="mode">
-                    <a href="#">
-                        <i class="uil uil-moon"></i>
-                        <span class="link-name">Dark Mode</span>
-                    </a>
-                    <div class="mode-toggle">
-                        <span class="switch"></span>
-                    </div>
-                </li>
-            </ul>
-        </div>
-    </nav>
-    
     <section class="dashboard">
         
         <div class="top">
