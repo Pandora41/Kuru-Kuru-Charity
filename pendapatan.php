@@ -120,7 +120,7 @@ $totalSumKelas = $rowKelas['total_sum'];
 
             <div class="search-box">
                 <i class="uil uil-search"></i>
-               <form action="#" METHOD="GET">
+               <form action="{{ route('siswa.search') }}" METHOD="GET">
                 <input class="submit" type="submit" value="">
                 <input class="search" type="text" placeholder="Cari NIS / Nama" name="pencarian">
                 </form>
@@ -130,58 +130,29 @@ $totalSumKelas = $rowKelas['total_sum'];
             <div class="overview">
                 <div class="title">
                     <i class='bx bx-line-chart'></i>
-                    <span class="text">Pendapatan</span>
+                    <span class="text">Data Siswa</span>
                 </div>
                 <div class="boxes">
                     <div class="box box1">
                         <div class="header-box">
                             <i class='bx bx-money'></i>
-                            <span class="text">Total Pemasukan</span>
+                            <span class="text">Total Murid</span>
                         </div>
-                        <?php $formattedValue = number_format($totalSum, 0, ',', '.'); ?>
-                        <span class="number">Rp. <?= $formattedValue ?></span>
+                        <span class="number">TOTAL MURID ADALAH =</span>
                     </div>
                     <div class="box box2">
                         <div class="header-box">
                             <i class='bx bxs-graduation'></i>
-                            <span class="text">Angkatan</span>
+                            <span class="text">Tahun Kelahiran</span>
                         </div>
-                        <?php 
-
-                         if($totalSumAngkatan == 0) {
-                            $masukangkatan = "-";
-                         } else {
-                         
-                         $formattedValue = number_format($totalSumAngkatan, 0, ',', '.'); 
-                         $masukangkatan = "Rp. " . $formattedValue;
-                
-                         }
-                         ?>
-                        <span class="number"><?= $masukangkatan ?></span>
+                        <span class="number">Tahun Kelahiran BLABLABLA</span>
                     </div>
                     <div class="box box3">
                         <div class="header-box">
                             <i class='bx bxs-school'></i>
-                            <?php 
-                            if ($kelas == "") {
-                                $KelasTitle = "Kelas";
-                            }
-                            else {
-                                $KelasTitle = $kelas;
-                            }
-                            ?>
-                            <span class="text"><?=$KelasTitle?></span>
+                            <span class="text">NAMA KELAS</span>
                         </div>
-                         <?php 
-                        if($totalSumKelas == 0) {
-                            $masukkelas = "-";
-                         } else {
-                         
-                         $formattedValue = number_format($totalSumKelas, 0, ',', '.'); 
-                         $masukkelas = "Rp. " . $formattedValue;
-                
-                         }?>
-                        <span class="number"><?= $masukkelas ?></span>
+                        <span class="number">JUMLAH SISWA DI KELAS</span>
                     </div>
                 </div>
             </div>
@@ -189,26 +160,32 @@ $totalSumKelas = $rowKelas['total_sum'];
             <div class="activity">
                 <div class="header-activity">
                     <div class="select-1">
-                         <span class="select-title">Angkatan</span>
+                         <span class="select-title">TAHUN KELAHIRAN</span>
                         <select name="tahun" id="tahunSelect">
-                            <option value="">Tahun Ajaran</option>
-    <option value="2022/2023" <?php echo ($tahun== '2022/2023') ? 'selected' : ''; ?>>2022/2023</option>
-    <option value="2023/2024" <?php echo ($tahun== '2023/2024') ? 'selected' : ''; ?>>2023/2024</option>
+                            <option value="">Tahun Kelahiran</option>
+    <option value="2006">2006</option>
+    <option value="2007">2007</option>
+    <option value="2008">2008</option>
                         </select>
                     </div>
                     <div class="select-2">
                         <span class="select-title">Kelas</span>
                        <select name="kelas" id="kelasSelect">
                             <option value="">Semua Kelas</option>
-    <option value="X-PPLG-1" <?php echo ($kelas== 'X-PPLG-1') ? 'selected' : ''; ?>>X-PPLG-1</option>
-    <option value="X-PPLG-2" <?php echo ($kelas== 'X-PPLG-2') ? 'selected' : ''; ?>>X-PPLG-2</option>
-    <option value="X-TJKT-1" <?php echo ($kelas== 'X-TJKT-1') ? 'selected' : ''; ?>>X-TJKT-1</option>
-    <option value="X-TJKT-2" <?php echo ($kelas== 'X-TJKT-2') ? 'selected' : ''; ?>>X-TJKT-2</option>
-    <option value="X-DKV-1" <?php echo ($kelas== 'X-DKV-1') ? 'selected' : ''; ?>>X-DKV-1</option>
-    <option value="X-DKV-2" <?php echo ($kelas== 'X-DKV-2') ? 'selected' : ''; ?>>X-DKV-2</option>
-    <option value="X-DKV-3" <?php echo ($kelas== 'X-DKV-3') ? 'selected' : ''; ?>>X-DKV-3</option>
-    <option value="X-AM-1" <?php echo ($kelas== 'X-AM-1') ? 'selected' : ''; ?>>X-AM-1</option>
-    <option value="X-AM-2" <?php echo ($kelas== 'X-AM-2') ? 'selected' : ''; ?>>X-AM-2</option>
+    <option value="X-TM-1">X-TM-1</option>
+    <option value="X-TM-2">X-TM-2</option>
+    <option value="X-TM-3">X-TM-3</option>  
+    <option value="X-TPFL-1">X-TPFL-1</option>  
+    <option value="X-TPFL-2">X-TPFL-2</option>  
+    <option value="X-PPLG-1">X-PPLG-1</option>
+    <option value="X-PPLG-2">X-PPLG-2</option>
+    <option value="X-TJKT-1">X-TJKT-1</option>
+    <option value="X-TJKT-2">X-TJKT-2</option>
+    <option value="X-DKV-1">X-DKV-1</option>
+    <option value="X-DKV-2">X-DKV-2</option>
+    <option value="X-DKV-3">X-DKV-3</option>
+    <option value="X-AM-1">X-AM-1</option>
+    <option value="X-AM-2">X-AM-2</option>
                         </select>
                     </div>
                 </div>
@@ -241,21 +218,15 @@ $totalSumKelas = $rowKelas['total_sum'];
                 <div class="activity-data">
                     <div class="table-wrapper">
                         <div class="table-fixed">
-                            
-                                <!-- <tr class="data-title">
-                                    <th>NIS</th>
-                                    <th>Nama</th>
-                                    <th>Kelas</th>
-                                </tr> -->
 
                                 <table>
                                 <tr class="data-title">
                                     <th>NIS</th>
-                                </tr> <?php
-                                foreach ($results as $result) :?>
+                                </tr>
+                                @foreach($siswa as $s)
                                 <tr class="data-list ">
-                                    <td><button id="hireBtn"><?=$result['nis']?></button></td>
-                                </tr> <?php endforeach?>
+                                    <td><button id="hireBtn">{{$s->nis}}</button></td>
+                                </tr>@endforeach
                             </table>
                         </div>
 
@@ -265,11 +236,10 @@ $totalSumKelas = $rowKelas['total_sum'];
                                 <tr class="data-title data-name thead">
                                     <th class="data-name">Nama</th>
                                 </tr>
-                                <?php 
-            foreach ($results as $result) :?>
+                                @foreach($siswa as $s)
                                 <tr class="data-list data-name">
-                                    <td><button id="hireBtn"><?=$result['nama']?></button></td>
-                                </tr> <?php endforeach?>
+                                    <td><button id="hireBtn">{{ $s->nama }}</button></td>
+                                </tr>@endforeach
                             </table>
                             </div>
 
@@ -278,259 +248,24 @@ $totalSumKelas = $rowKelas['total_sum'];
                                     <tr class="data-title">
                                     <th>Kelas</th>
                                     </tr>
-                                    <?php 
-            foreach ($results as $result) :?>
+                                    @foreach($siswa as $s)
                                     <tr class="data-list">
-                                    <td><button id="hireBtn"><?=$result['kelas']?></button></td>
-                                    </tr> <?php endforeach?>
+                                    <td><button id="hireBtn">{{$s->kelas}}</button></td>
+                                    </tr> @endforeach
                                 </table>
                            
                             </div>
-                            <div class="table-scrollable">
-                            <table>
-                                <tr class="data-title">
-                                <th>Juli</th>
-                                <th>Agustus</th>
-                                <th>September</th>
-                                <th>Oktober</th>
-                                <th>November</th>
-                                <th>Desember</th>
-                                <th>Januari</th>
-                                <th>Februari</th>
-                                <th>Maret</th>
-                                <th>April</th>
-                                <th>Mei</th>
-                                <th>Juni</th>
-                                </tr>
-                                <?php 
-            foreach ($results as $result) :?>
-                                <tr class="data-list">
-
-                                <?php $formattedValue = number_format($result['juli'], 0, ',', '.'); 
-                                if ($formattedValue == 0) {?>
-                                <td><button class="addBtn" 
-                                data-nis="<?= $result['nis'] ?>"
-                                data-nama="<?= $result['nama'] ?>"
-                                data-bulan="Juli"
-                                data-kelas="<?= $result['kelas'] ?>"
-                                ><i class='bx bx-minus'></i></button></td> 
-                                
-                                <?php } else {?>
-                                <td><button class="hireBtn"
-                                data-nis="<?= $result['nis'] ?>"
-                                data-nama="<?= $result['nama'] ?>"
-                                data-bulan="Juli"
-                                data-kelas="<?= $result['kelas'] ?>"
-                                data-nominal="<?= $result['juli'] ?>"
-                                ><?=$formattedValue?></button></td><?php }?>
-
-                                <?php $formattedValue = number_format($result['agustus'], 0, ',', '.'); 
-                                if ($formattedValue == 0) {?>
-                                <td><button class="addBtn"
-                                data-nis="<?= $result['nis'] ?>"
-                                data-nama="<?= $result['nama'] ?>"
-                                data-bulan="Agustus"
-                                data-kelas="<?= $result['kelas'] ?>"
-                                ><i class='bx bx-minus'></i></button></td> 
-                                
-                                <?php } else {?>
-                                <td><button class="hireBtn"
-                                data-nis="<?= $result['nis'] ?>"
-                                data-nama="<?= $result['nama'] ?>"
-                                data-bulan="Agustus"
-                                data-kelas="<?= $result['kelas'] ?>"
-                                data-nominal="<?= $result['agustus'] ?>"
-                                ><?=$formattedValue?></button></td><?php }?>
-
-                                <?php $formattedValue = number_format($result['september'], 0, ',', '.'); 
-                                if ($formattedValue == 0) {?>
-                                <td><button class="addBtn"
-                                data-nis="<?= $result['nis'] ?>"
-                                data-nama="<?= $result['nama'] ?>"
-                                data-bulan="September"
-                                data-kelas="<?= $result['kelas'] ?>"><i class='bx bx-minus'></i></button></td>
-                                
-                                <?php } else {?>
-                                <td><button class="hireBtn"
-                                data-nis="<?= $result['nis'] ?>"
-                                data-nama="<?= $result['nama'] ?>"
-                                data-bulan="September"
-                                data-kelas="<?= $result['kelas'] ?>"
-                                data-nominal="<?= $result['september'] ?>"
-                                ><?=$formattedValue?></button></td><?php }?>
-
-                                <?php $formattedValue = number_format($result['oktober'], 0, ',', '.'); 
-                                if ($formattedValue == 0) {?>
-                                <td><button class="addBtn"
-                                data-nis="<?= $result['nis'] ?>"
-                                data-nama="<?= $result['nama'] ?>"
-                                data-bulan="Oktober"
-                                data-kelas="<?= $result['kelas'] ?>"><i class='bx bx-minus'></i></button></td>
-                                
-                                <?php } else {?>
-                                <td><button class="hireBtn"
-                                data-nis="<?= $result['nis'] ?>"
-                                data-nama="<?= $result['nama'] ?>"
-                                data-bulan="Oktober"
-                                data-kelas="<?= $result['kelas'] ?>"
-                                data-nominal="<?= $result['oktober'] ?>"
-                                ><?=$formattedValue?></button></td><?php }?>
-
-                                <?php $formattedValue = number_format($result['november'], 0, ',', '.'); 
-                                if ($formattedValue == 0) {?>
-                                <td><button class="addBtn"
-                                data-nis="<?= $result['nis'] ?>"
-                                data-nama="<?= $result['nama'] ?>"
-                                data-bulan="November"
-                                data-kelas="<?= $result['kelas'] ?>"><i class='bx bx-minus'></i></button></td>
-                                
-                                <?php } else {?>
-                                <td><button class="hireBtn"
-                                data-nis="<?= $result['nis'] ?>"
-                                data-nama="<?= $result['nama'] ?>"
-                                data-bulan="November"
-                                data-kelas="<?= $result['kelas'] ?>"
-                                data-nominal="<?= $result['november'] ?>"
-                                ><?=$formattedValue?></button></td><?php }?>
-
-                                <?php $formattedValue = number_format($result['desember'], 0, ',', '.'); 
-                                if ($formattedValue == 0) {?>
-                                <td><button class="addBtn"
-                                data-nis="<?= $result['nis'] ?>"
-                                data-nama="<?= $result['nama'] ?>"
-                                data-bulan="Desember"
-                                data-kelas="<?= $result['kelas'] ?>"><i class='bx bx-minus'></i></button></td>
-                                
-                                <?php } else {?>
-                                <td><button class="hireBtn"
-                                data-nis="<?= $result['nis'] ?>"
-                                data-nama="<?= $result['nama'] ?>"
-                                data-bulan="Desember"
-                                data-kelas="<?= $result['kelas'] ?>"
-                                data-nominal="<?= $result['desember'] ?>"
-                                ><?=$formattedValue?></button></td><?php }?>
-
-                                <?php $formattedValue = number_format($result['januari'], 0, ',', '.'); 
-                                if ($formattedValue == 0) {?>
-                                <td><button class="addBtn"
-                                data-nis="<?= $result['nis'] ?>"
-                                data-nama="<?= $result['nama'] ?>"
-                                data-bulan="Januari"
-                                data-kelas="<?= $result['kelas'] ?>"><i class='bx bx-minus'></i></button></td>
-                                
-                                <?php } else {?>
-                                <td><button class="hireBtn"
-                                data-nis="<?= $result['nis'] ?>"
-                                data-nama="<?= $result['nama'] ?>"
-                                data-bulan="Januari"
-                                data-kelas="<?= $result['kelas'] ?>"
-                                data-nominal="<?= $result['januari'] ?>"
-                                ><?=$formattedValue?></button></td><?php }?>
-
-                                <?php $formattedValue = number_format($result['februari'], 0, ',', '.'); 
-                                if ($formattedValue == 0) {?>
-                                <td><button class="addBtn"
-                                data-nis="<?= $result['nis'] ?>"
-                                data-nama="<?= $result['nama'] ?>"
-                                data-bulan="Februari"
-                                data-kelas="<?= $result['kelas'] ?>"><i class='bx bx-minus'></i></button></td>
-
-                                <?php } else {?>
-                                <td><button class="hireBtn"
-                                data-nis="<?= $result['nis'] ?>"
-                                data-nama="<?= $result['nama'] ?>"
-                                data-bulan="Februari"
-                                data-kelas="<?= $result['kelas'] ?>"
-                                data-nominal="<?= $result['februari'] ?>"
-                                ><?=$formattedValue?></button></td><?php }?>
-
-                                <?php $formattedValue = number_format($result['maret'], 0, ',', '.'); 
-                                if ($formattedValue == 0) {?>
-                                <td><button class="addBtn"
-                                data-nis="<?= $result['nis'] ?>"
-                                data-nama="<?= $result['nama'] ?>"
-                                data-bulan="Maret"
-                                data-kelas="<?= $result['kelas'] ?>"><i class='bx bx-minus'></i></button></td>
-                                
-                                <?php } else {?>
-                                <td><button class="hireBtn"
-                                data-nis="<?= $result['nis'] ?>"
-                                data-nama="<?= $result['nama'] ?>"
-                                data-bulan="Maret"
-                                data-kelas="<?= $result['kelas'] ?>"
-                                data-nominal="<?= $result['maret'] ?>"
-                                ><?=$formattedValue?></button></td><?php }?>
-
-                                <?php $formattedValue = number_format($result['april'], 0, ',', '.'); 
-                                if ($formattedValue == 0) {?>
-                                <td><button class="addBtn"
-                                data-nis="<?= $result['nis'] ?>"
-                                data-nama="<?= $result['nama'] ?>"
-                                data-bulan="April"
-                                data-kelas="<?= $result['kelas'] ?>"><i class='bx bx-minus'></i></button></td>
-                                
-                                <?php } else {?>
-                                <td><button class="hireBtn"
-                                data-nis="<?= $result['nis'] ?>"
-                                data-nama="<?= $result['nama'] ?>"
-                                data-bulan="April"
-                                data-kelas="<?= $result['kelas'] ?>"
-                                data-nominal="<?= $result['april'] ?>"
-                                ><?=$formattedValue?></button></td><?php }?>
-
-                                <?php $formattedValue = number_format($result['mei'], 0, ',', '.'); 
-                                if ($formattedValue == 0) {?>
-                                <td><button class="addBtn"
-                                data-nis="<?= $result['nis'] ?>"
-                                data-nama="<?= $result['nama'] ?>"
-                                data-bulan="Mei"
-                                data-kelas="<?= $result['kelas'] ?>"><i class='bx bx-minus'></i></button></td>
-                                
-                                <?php } else {?>
-                                <td><button class="hireBtn"
-                                data-nis="<?= $result['nis'] ?>"
-                                data-nama="<?= $result['nama'] ?>"
-                                data-bulan="Mei"
-                                data-kelas="<?= $result['kelas'] ?>"
-                                data-nominal="<?= $result['mei'] ?>"
-                                ><?=$formattedValue?></button></td><?php }?>
-
-                                <?php $formattedValue = number_format($result['juni'], 0, ',', '.'); 
-                                if ($formattedValue == 0) {?>
-                                <td><button class="addBtn"
-                                data-nis="<?= $result['nis'] ?>"
-                                data-nama="<?= $result['nama'] ?>"
-                                data-bulan="Juni"
-                                data-kelas="<?= $result['kelas'] ?>"><i class='bx bx-minus'></i></button></td>
-                                
-                                <?php } else {?>
-                                <td><button class="hireBtn"
-                                data-nis="<?= $result['nis'] ?>"
-                                data-nama="<?= $result['nama'] ?>"
-                                data-bulan="Juni"
-                                data-kelas="<?= $result['kelas'] ?>"
-                                data-nominal="<?= $result['juni'] ?>"
-                                ><?=$formattedValue?></button></td><?php }?>
-
-                                
-
-
-                                </tr>
-                                <?php endforeach ?>
-                            </table>
-                            </div>
                             <div class="table-fixed">
-                            <table>
-                                <tr class="data-title">
-                                <th>Total</th>
-                                </tr>
-                                <?php foreach ($results as $result) :?>
-                                <tr class="data-list">
-                                <?php $formattedValue = number_format($result['total'], 0, ',', '.'); ?>
-                                <td><button id="hireBtn"><?=$formattedValue?></button></td>
-                                </tr>
-                                <?php endforeach ?>
-                            </table>
+                                <table>
+                                    <tr class="data-title">
+                                    <th>Jenis Kelamin</th>
+                                    </tr>
+                                    @foreach($siswa as $s)
+                                    <tr class="data-list">
+                                    <td><button id="hireBtn">{{$s->jenis_kelamin}}</button></td>
+                                    </tr> @endforeach
+                                </table>
+                           
                             </div>
                         </div>
                     </div>
